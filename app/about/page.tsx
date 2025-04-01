@@ -55,6 +55,8 @@ export default function About() {
             <br />
             <a href="mailto:rishi@stride-labs.com" className="text-gray-900 underline">
               rishi@stride-labs.com
+              <br />
+              aryan_sawhney@brown.edu
             </a>
           </p>
         </div>
