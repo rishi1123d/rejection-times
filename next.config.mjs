@@ -15,6 +15,47 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    // Keep only a few common domains that might need special handling
+    domains: [
+      'i.insider.com',
+      'static01.nyt.com',
+      'images.wsj.net',
+      'cdn-images-1.medium.com',
+      'assets.entrepreneur.com',
+      'img.buzzfeed.com',
+      'media.npr.org'
+    ],
+    // Use remotePatterns for broader coverage
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.org',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.net',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.io',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.biz',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.co',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.media',
+      },
+    ],
   },
   experimental: {
     webpackBuildWorker: true,

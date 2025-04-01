@@ -51,6 +51,11 @@ export default function Header() {
                 </Link>
               </li>
               <li>
+                <Link href="/#external-stories" className="text-gray-900 hover:text-gray-600 font-medium">
+                  From Around the Web
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-gray-900 hover:text-gray-600 font-medium">
                   About
                 </Link>
