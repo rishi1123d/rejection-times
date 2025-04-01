@@ -69,10 +69,10 @@ export default function BrowseStories() {
             </div>
           ))}
 
-          {/* Full width story */}
+          {allStories.length > 6 &&
           <div className="md:col-span-12 border-t border-b border-gray-300 py-8 my-4">
             <StoryCard story={allStories[6]} horizontal />
-          </div>
+          </div>}
 
           {/* More small stories */}
           {allStories.slice(7).map((story) => (
