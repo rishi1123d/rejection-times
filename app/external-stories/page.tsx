@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ExternalLink } from "lucide-react"
-
+import { formatdate } from "@/lib/utils"
 // This data structure will hold the external stories
 // You can replace this with your actual list of 40-50 links
 const externalSuccessStories = [
@@ -61,7 +61,7 @@ export default function ExternalStories() {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <p className="text-sm text-gray-500 mb-2">{story.date} • {story.source}</p>
+                <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)} • {story.source}</p>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight hover:underline">
                   <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     {story.title}
@@ -94,7 +94,7 @@ export default function ExternalStories() {
                   className="object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-500 mb-2">{story.date} • {story.source}</p>
+              <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)} • {story.source}</p>
               <h3 className="font-serif text-xl font-bold mb-3 leading-tight hover:underline">
                 <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                   {story.title}

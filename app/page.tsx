@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, ExternalLink, Newspaper } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
+import { formatdate } from "@/lib/utils"
 import { useEffect, useState } from "react"
 type Story = {
   id: string;
@@ -406,7 +406,7 @@ export default function Home() {
                   <div className="text-4xl">📝</div>
                 </div>
                 <div className="flex flex-col justify-center">
-                  <p className="text-sm text-gray-500 mb-2">{story.date}</p>
+                  <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)}</p>
                   <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight hover:underline">
                     <Link href={`/story/${story.id}`}>{story.quote}</Link>
                   </h3>
@@ -425,7 +425,7 @@ export default function Home() {
             // .filter((story) => story.size === "medium")
             .map((story, index) => (
               <div key={story.id} className="md:col-span-4 border-b border-gray-200 pb-6">
-                <p className="text-sm text-gray-500 mb-2">{story.date}</p>
+                <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)}</p>
                 <h3 className="font-serif text-2xl font-bold mb-3 leading-tight hover:underline">
                   <Link href={`/story/${story.id}`}>{story.quote}</Link>
                 </h3>
@@ -440,7 +440,7 @@ export default function Home() {
             // .filter((story) => story.size === "small")
             .map((story, index) => (
               <div key={story.id} className="md:col-span-4 border-b md:border-b-0 border-gray-200 pb-6">
-                <p className="text-sm text-gray-500 mb-1">{story.date}</p>
+                <p className="text-sm text-gray-500 mb-1">{formatdate(story.date)}</p>
                 <h3 className="font-serif text-xl font-bold mb-2 leading-tight hover:underline">
                   <Link href={`/story/${story.id}`}>{story.quote}</Link>
                 </h3>
@@ -469,7 +469,7 @@ export default function Home() {
                         alt={story.title}
                       />
                     </div>
-                    <p className="text-sm text-gray-500 mb-2">{story.date} • {story.source}</p>
+                    <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)} • {story.source}</p>
                     <h3 className="font-serif text-2xl font-bold mb-3 leading-tight hover:underline">
                       <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                         {story.title}
@@ -499,7 +499,7 @@ export default function Home() {
                         alt={story.title}
                       />
                     </div>
-                    <p className="text-sm text-gray-500 mb-1">{story.date} • {story.source}</p>
+                    <p className="text-sm text-gray-500 mb-1">{formatdate(story.date)} • {story.source}</p>
                     <h3 className="font-serif text-xl font-bold mb-2 leading-tight hover:underline">
                       <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                         {story.title}

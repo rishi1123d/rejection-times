@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import { formatdate } from "@/lib/utils"
 // This interface defines the shape of our story data
 interface Story {
   id: string;
@@ -127,7 +127,7 @@ export default function StoryPage({ params }: { params: { id: string } }) {
 
         {/* Story header */}
         <div className="mb-12">
-          <p className="text-sm text-gray-500 mb-2">{story.date}</p>
+          <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)}</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
             {story.quote}
           </h1>
@@ -143,7 +143,7 @@ export default function StoryPage({ params }: { params: { id: string } }) {
             </div>
             <div>
               <h3 className="font-serif text-xl font-bold">{story.author}</h3>
-              <p className="text-sm text-gray-500">{story.date}</p>
+              <p className="text-sm text-gray-500">{formatdate(story.date)}</p>
               <p className="mt-2 text-gray-600 max-w-md">
                 {story.author} shares their personal journey from rejection to success in this powerful story.
               </p>
