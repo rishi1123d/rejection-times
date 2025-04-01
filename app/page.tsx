@@ -14,6 +14,7 @@ type Story = {
   date: string;
   featured: boolean;
   size: string;
+  image_url?: string; // Optional field for uploaded image
 };
 
 // Helper function to shuffle array (Fisher-Yates algorithm)
@@ -576,10 +577,26 @@ export default function Home() {
               .map((story) => (
                 <div key={story.id} className="grid md:grid-cols-2 gap-8">
                   <div className="bg-gray-100 aspect-[4/3] relative flex items-center justify-center">
-                    {story.author === "Hank Couture" ? (
+                    {story.image_url ? (
                       <div className="relative w-full h-full">
                         <Image 
-                          src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_1/rvknouvl5zncazanvzgw"
+                          src={story.image_url}
+                          alt={`Image for story by ${story.author}`}
+                          fill
+                          className="object-cover"
+                          priority
+                          onError={(e) => {
+                            // Fallback if the uploaded image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null; // Prevent infinite error loop
+                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(story.author)}&background=random&size=256`;
+                          }}
+                        />
+                      </div>
+                    ) : story.author === "Hank Couture" ? (
+                      <div className="relative w-full h-full">
+                        <Image 
+                          src="/hank-couture.jpg"
                           alt="Hank Couture"
                           fill
                           className="object-cover"

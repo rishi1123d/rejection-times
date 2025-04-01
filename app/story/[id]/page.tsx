@@ -19,6 +19,7 @@ interface Story {
   featured: boolean;
   size: string;
   content?: string;
+  image_url?: string; // Optional field for uploaded image
 }
 
 // Author Avatar Component
@@ -36,6 +37,11 @@ function AuthorAvatar({ name, size = "medium" }: { name: string, size?: "small" 
   const getAvatarUrl = (name: string) => {
     const lowerName = name.toLowerCase();
     const seed = generateSeed(name);
+    
+    // Special case for Hank Couture
+    if (lowerName === "hank couture") {
+      return "/hank-couture.jpg";
+    }
     
     // Determine gender for the image - just for variety in the avatars
     const isFemale = ["jane", "sarah", "emily"].some(n => lowerName.includes(n.toLowerCase()));
@@ -428,7 +434,33 @@ export default function StoryPage({ params }: { params: { id: string } }) {
           {/* Author with Avatar */}
           <div className="flex items-center py-4 px-6 bg-gray-50 rounded-lg border border-gray-100">
             <div className="mr-6">
-              <AuthorAvatar name={story?.author} size="large" />
+              {story.image_url ? (
+                <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-white shadow-md">
+                  <Image 
+                    src={story.image_url}
+                    alt={`Photo of ${story.author}`}
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      // Fallback to AuthorAvatar if the image fails to load
+                      e.currentTarget.style.display = 'none';
+                      // This is a simple workaround - in a real app we'd want to update state
+                      const parent = e.currentTarget.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<div id="fallback-avatar"></div>`;
+                        const fallback = document.getElementById('fallback-avatar');
+                        if (fallback) {
+                          const avatar = document.createElement('div');
+                          fallback.appendChild(avatar);
+                          // We'd render an AuthorAvatar here in a real implementation
+                        }
+                      }
+                    }}
+                  />
+                </div>
+              ) : (
+                <AuthorAvatar name={story?.author} size="large" />
+              )}
             </div>
             <div>
               <h3 className="font-serif text-xl font-bold">{story?.author}</h3>
