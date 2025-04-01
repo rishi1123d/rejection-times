@@ -12,8 +12,6 @@ const createClient = () => {
 // import { createClient } from '../../../lib/supabaseClient';
 
 export async function GET(req: Request) {
-  console.log("SUPABASE_URL", process.env.NEXT_PUBLIC_SUPABASE_URL);
-console.log("SUPABASE_KEY", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   const supabase = await createClient();
   console.log('Supabase client created');
@@ -76,4 +74,3 @@ export async function POST(req: Request) {
     headers: { 'Content-Type': 'application/json' },
   });
 }
-//   </section>
