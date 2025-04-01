@@ -15,7 +15,7 @@ const playfair = Playfair({
 export const metadata: Metadata = {
   title: "The Rejection Times | Stories of Setbacks and Success",
   description: "A collection of stories celebrating the setbacks that led to extraordinary comebacks",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

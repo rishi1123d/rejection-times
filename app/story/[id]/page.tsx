@@ -10,7 +10,7 @@ import { use } from 'react';
 
 // This interface defines the shape of our story data
 interface Story {
-  id: string;
+  id: string | number;
   quote: string;
   description: string;
   outcome: string;
@@ -350,9 +350,30 @@ export default function StoryPage({ params }: { params: { id: string } }) {
     const id = pathParts[pathParts.length - 1];
     
     // Use mock data directly instead of fetching from API
-    const foundStory = featuredStories.find(s => s.id === id);
-    setStory(foundStory || null);
-    setLoading(false);
+    const foundStory = featuredStories.find(s => String(s.id) === id);
+    
+    // If not found in featured stories, try to fetch from API
+    if (!foundStory) {
+      fetch(`/api/get_story?id=${id}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Story not found');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setStory(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching story:', error);
+          setStory(null);
+          setLoading(false);
+        });
+    } else {
+      setStory(foundStory);
+      setLoading(false);
+    }
   }, []);
 
   if (loading) {
