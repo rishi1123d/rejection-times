@@ -26,7 +26,7 @@ export async function POST(req: Request) {
           outcome,
           date,
           // Add size field - default to medium
-          size: 'medium',
+          // size: 'medium',
           // By default, not featured - will be curated by editors
           featured: false
         },
