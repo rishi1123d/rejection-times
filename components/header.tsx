@@ -33,7 +33,7 @@ export default function Header() {
           {/* Logo */}
           <div className="text-center mb-4 border-b border-gray-300 pb-3">
             <Link href="/" className="inline-block">
-              <h1 className="nyt-title text-6xl md:text-7xl font-black tracking-tight">The Rejection Times</h1>
+              <h1 className="nyt-title text-6xl md:text-7xl font-black tracking-tight" style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</h1>
             </Link>
           </div>
 

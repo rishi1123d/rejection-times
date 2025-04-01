@@ -25,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans bg-white`}>
         <Header />
         <main className="min-h-screen">{children}</main>

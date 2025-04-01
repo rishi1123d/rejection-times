@@ -8,11 +8,11 @@ export default function About() {
         <Link href="/" className="text-gray-700 hover:text-black flex items-center gap-1 mb-4 text-sm">
           <ArrowLeft className="h-4 w-4" /> Back to home
         </Link>
-        <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6">About The Rejection Times</h1>
+        <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6">About <span style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</span></h1>
 
         <div className="prose prose-lg max-w-none">
           <p className="text-xl font-serif leading-relaxed">
-            The Rejection Times was founded on a simple premise: behind every success story lies a trail of rejections,
+            <span style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</span> was founded on a simple premise: behind every success story lies a trail of rejections,
             setbacks, and failures that are rarely discussed but often instrumental to ultimate achievement.
           </p>
 
@@ -26,7 +26,7 @@ export default function About() {
 
           <p>
             We believe that rejection is not the end of a journey, but often the beginning of a more meaningful one. The
-            stories featured in The Rejection Times demonstrate that setbacks can be catalysts for growth, innovation,
+            stories featured in <span style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</span> demonstrate that setbacks can be catalysts for growth, innovation,
             and unexpected opportunities.
           </p>
 

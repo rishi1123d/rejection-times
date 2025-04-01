@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h2 className="font-serif text-2xl font-bold mb-4">The Rejection Times</h2>
+            <h2 className="font-serif text-2xl font-bold mb-4" style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</h2>
             <p className="text-gray-600 mb-4 max-w-md">
               A collection of stories celebrating the setbacks that led to extraordinary comebacks.
             </p>
-            <p className="text-gray-600">© {currentYear} The Rejection Times. All rights reserved.</p>
+            <p className="text-gray-600">© {currentYear} <span style={{ fontFamily: "'UnifrakturCook', cursive" }}>The Rejection Times</span>. All rights reserved.</p>
           </div>
 
           <div>
