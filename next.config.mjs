@@ -23,7 +23,9 @@ const nextConfig = {
       'cdn-images-1.medium.com',
       'assets.entrepreneur.com',
       'img.buzzfeed.com',
-      'media.npr.org'
+      'media.npr.org',
+      'ui-avatars.com',
+      'randomuser.me'
     ],
     // Use remotePatterns for broader coverage
     remotePatterns: [
