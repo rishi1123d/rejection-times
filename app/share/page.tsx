@@ -10,8 +10,8 @@ export default function ShareStory() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [rejectionQuote, setRejectionQuote] = useState('');
-  const [story, setStory] = useState('');
+  const [quote, setquote] = useState('');
+  const [description, setDescription] = useState('');
   const [outcome, setOutcome] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false); // State for submission status
   const [submitStatus, setSubmitStatus] = useState(null); // State for success/error message
@@ -24,21 +24,24 @@ export default function ShareStory() {
 
     // Construct the data payload from state
     const formData = {
-      name,
+      author: name,
       email,
-      rejectionQuote,
-      story,
+      quote,
+      description,
       outcome,
+      date: new Date().toISOString(), // Current date in ISO format
     };
 
+
     try {
-      const response = await fetch('/api/supabase', {
+      const response = await fetch('/api/post_story', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
       });
+      
 
 
       if (!response.ok) {
@@ -55,8 +58,8 @@ export default function ShareStory() {
       // Optionally, clear the form fields after successful submission
       setName('');
       setEmail('');
-      setRejectionQuote('');
-      setStory('');
+      setquote('');
+      setDescription('');
       setOutcome('');
 
     } catch (error) {
@@ -85,6 +88,9 @@ export default function ShareStory() {
             </label>
             <Input
               id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Jane Smith"
               className="rounded-none border-gray-300 focus:border-black focus:ring-black"
             />
@@ -95,6 +101,9 @@ export default function ShareStory() {
               Email Address
             </label>
             <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+
               id="email"
               type="email"
               placeholder="jane@example.com"
@@ -107,6 +116,8 @@ export default function ShareStory() {
               The Rejection (Quote or Summary)
             </label>
             <Textarea
+              value={quote}
+              onChange={(e) => setquote(e.target.value)}
               id="rejection-quote"
               placeholder="What was the rejection you received?"
               className="rounded-none border-gray-300 focus:border-black focus:ring-black"
@@ -119,6 +130,8 @@ export default function ShareStory() {
               Your Story
             </label>
             <Textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               id="story"
               placeholder="Tell us about the rejection and what happened afterward..."
               className="rounded-none border-gray-300 focus:border-black focus:ring-black"
@@ -131,6 +144,8 @@ export default function ShareStory() {
               The Outcome
             </label>
             <Textarea
+              value={outcome}
+              onChange={(e) => setOutcome(e.target.value)}
               id="outcome"
               placeholder="How did things turn out? What success came from this rejection?"
               className="rounded-none border-gray-300 focus:border-black focus:ring-black"

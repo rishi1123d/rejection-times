@@ -45,32 +45,3 @@ export async function GET(req: Request) {
 // The Outcome
 
 
-export async function POST(req: Request) {
-  const supabase = await createClient();
-  const { name, email, quote, description, outcome } = await req.json();
-
-  console.log('Creating new story entry...');
-  const { data, error } = await supabase
-    .from('stories')
-    .insert([
-      {
-        name,
-        email,
-        quote,
-        description,
-        outcome,
-      },
-    ]);
-
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  return new Response(JSON.stringify(data), {
-    status: 201,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
