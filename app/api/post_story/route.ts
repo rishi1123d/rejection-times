@@ -24,7 +24,11 @@ export async function POST(req: Request) {
           quote,
           description,
           outcome,
-          date
+          date,
+          // Add size field - default to medium
+          size: 'medium',
+          // By default, not featured - will be curated by editors
+          featured: false
         },
       ]);
   
