@@ -43,9 +43,63 @@ function ExternalImage({ sourceUrl, alt, className }: { sourceUrl: string, alt: 
   );
 }
 
+// Author Avatar Component
+function AuthorAvatar({ name, size = "medium" }: { name: string, size?: "small" | "medium" | "large" }) {
+  // Generate a consistent seed based on the name
+  const generateSeed = (name: string) => {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash).toString();
+  };
+  
+  // Generate URLs for different types of authors to ensure consistent but different images
+  const getAvatarUrl = (name: string) => {
+    const lowerName = name.toLowerCase();
+    const seed = generateSeed(name);
+    
+    // Determine gender for the image - just for variety in the avatars
+    const isFemale = ["jane", "sarah", "emily"].some(n => lowerName.includes(n.toLowerCase()));
+    const gender = isFemale ? "female" : "male";
+    
+    // Unique but consistent identifier based on name
+    return `https://randomuser.me/api/portraits/${gender}/${parseInt(seed) % 99}.jpg`;
+  };
+  
+  // Set size classes based on the size prop
+  const sizeClasses = {
+    small: "w-8 h-8",
+    medium: "w-12 h-12",
+    large: "w-20 h-20"
+  };
+
+  return (
+    <div className={`relative rounded-full overflow-hidden ${sizeClasses[size]}`}>
+      <Image 
+        src={getAvatarUrl(name)}
+        alt={`Photo of ${name}`}
+        fill
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
+// Author with Avatar component
+function AuthorWithAvatar({ author, size = "medium" }: { author: string, size?: "small" | "medium" | "large" }) {
+  return (
+    <div className="flex items-center gap-3">
+      <AuthorAvatar name={author} size={size} />
+      <p className={`text-gray-500 ${size === "small" ? "text-xs" : "text-sm"}`}>By {author}</p>
+    </div>
+  );
+}
+
 export default function Home() {
   // State for randomized stories
   const [randomExternalStories, setRandomExternalStories] = useState<any[]>([]);
+  const [shuffledFeaturedStories, setShuffledFeaturedStories] = useState<any[]>([]);
   const [isClient, setIsClient] = useState(false);
 
   const featuredStories = [
@@ -57,7 +111,7 @@ export default function Home() {
       outcome: "I'm now a New York Times bestselling author with over 1 million copies sold.",
       author: "Jane Smith",
       date: "April 1, 2025",
-      featured: true,
+      featured: false, // Changed to false, as we'll dynamically set featured
       size: "large",
     },
     {
@@ -391,6 +445,11 @@ export default function Home() {
     // Mark that we're on client side
     setIsClient(true);
     
+    // Shuffle the featured stories and set a random one as featured
+    const shuffled = shuffleArray([...featuredStories]);
+    shuffled[0].featured = true; // Set the first story as featured
+    setShuffledFeaturedStories(shuffled);
+    
     // Select and shuffle stories - UPDATED to show only 5 stories total
     const mediumStories = shuffleArray(allExternalStories.filter(story => story.size === "medium")).slice(0, 2);
     const smallStories = shuffleArray(allExternalStories.filter(story => story.size === "small")).slice(0, 3);
@@ -430,14 +489,28 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Main featured story */}
+        {/* Main featured story - Show only when client-side */}
         <div className="mb-10 border-b border-gray-200 pb-10">
-          {featuredStories
+          {isClient && shuffledFeaturedStories
             .filter((story) => story.featured)
             .map((story) => (
               <div key={story.id} className="grid md:grid-cols-2 gap-8">
-                <div className="bg-gray-100 aspect-[4/3] flex items-center justify-center">
-                  <div className="text-4xl">📝</div>
+                <div className="bg-gray-100 aspect-[4/3] relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0">
+                    <Image 
+                      src={`https://randomuser.me/api/portraits/${
+                        ["jane", "sarah", "emily"].some(n => story.author.toLowerCase().includes(n.toLowerCase())) 
+                          ? "women" : "men"
+                      }/${Math.abs(story.author.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0)) % 99}.jpg`}
+                      alt={`Photo of ${story.author}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center bg-black bg-opacity-40 w-full h-full">
+                    <h4 className="font-medium text-xl text-white">{story.author}</h4>
+                    <p className="text-sm text-gray-200 mt-1">{story.date}</p>
+                  </div>
                 </div>
                 <div className="flex flex-col justify-center">
                   <p className="text-sm text-gray-500 mb-2">{story.date}</p>
@@ -446,41 +519,93 @@ export default function Home() {
                   </h3>
                   <p className="text-lg text-gray-700 mb-4">{story.description}</p>
                   <p className="text-green-700 font-medium text-lg">{story.outcome}</p>
-                  <p className="text-sm text-gray-500 mt-4">By {story.author}</p>
+                  <div className="mt-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200">
+                      <Image 
+                        src={`https://randomuser.me/api/portraits/${
+                          ["jane", "sarah", "emily"].some(n => story.author.toLowerCase().includes(n.toLowerCase())) 
+                            ? "women" : "men"
+                        }/${Math.abs(story.author.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0)) % 99}.jpg`}
+                        alt={`Photo of ${story.author}`}
+                        width={40}
+                        height={40}
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-sm text-gray-500">By {story.author}</p>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
 
+        {/* Display loading state when not client-side */}
+        {!isClient && (
+          <div className="mb-10 border-b border-gray-200 pb-10 text-center py-20">
+            <p className="text-lg text-gray-500">Loading featured story...</p>
+          </div>
+        )}
+
         {/* Dynamic grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Medium stories - 2 columns each */}
-          {featuredStories
-            .filter((story) => story.size === "medium")
+          {isClient && shuffledFeaturedStories
+            .filter((story) => !story.featured && story.size === "medium")
             .map((story, index) => (
               <div key={story.id} className="md:col-span-6 border-b border-gray-200 pb-6">
-                <p className="text-sm text-gray-500 mb-2">{story.date}</p>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-gray-100 aspect-square relative w-20 h-20 rounded-full overflow-hidden shadow-sm border-2 border-gray-200">
+                    <Image 
+                      src={`https://randomuser.me/api/portraits/${
+                        ["jane", "sarah", "emily"].some(n => story.author.toLowerCase().includes(n.toLowerCase())) 
+                          ? "women" : "men"
+                      }/${Math.abs(story.author.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0)) % 99}.jpg`}
+                      alt={`Photo of ${story.author}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">{story.date}</p>
+                    <p className="text-sm font-medium">By {story.author}</p>
+                  </div>
+                </div>
                 <h3 className="font-serif text-2xl font-bold mb-3 leading-tight hover:underline">
                   <Link href={`/story/${story.id}`}>{story.quote}</Link>
                 </h3>
                 <p className="text-gray-700 mb-3">{story.description}</p>
                 <p className="text-green-700 font-medium">{story.outcome}</p>
-                <p className="text-sm text-gray-500 mt-3">By {story.author}</p>
               </div>
             ))}
 
           {/* Small stories - 4 columns each */}
-          {featuredStories
-            .filter((story) => story.size === "small")
+          {isClient && shuffledFeaturedStories
+            .filter((story) => !story.featured && story.size === "small")
             .map((story, index) => (
               <div key={story.id} className="md:col-span-4 border-b md:border-b-0 border-gray-200 pb-6">
-                <p className="text-sm text-gray-500 mb-1">{story.date}</p>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+                    <Image 
+                      src={`https://randomuser.me/api/portraits/${
+                        ["jane", "sarah", "emily"].some(n => story.author.toLowerCase().includes(n.toLowerCase())) 
+                          ? "women" : "men"
+                      }/${Math.abs(story.author.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0)) % 99}.jpg`}
+                      alt={`Photo of ${story.author}`}
+                      width={40}
+                      height={40}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">{story.date}</p>
+                    <p className="text-xs font-medium">By {story.author}</p>
+                  </div>
+                </div>
                 <h3 className="font-serif text-xl font-bold mb-2 leading-tight hover:underline">
                   <Link href={`/story/${story.id}`}>{story.quote}</Link>
                 </h3>
                 <p className="text-sm text-gray-700 mb-2">{story.description}</p>
                 <p className="text-sm text-green-700 font-medium">{story.outcome}</p>
-                <p className="text-xs text-gray-500 mt-2">By {story.author}</p>
               </div>
             ))}
         </div>
@@ -569,19 +694,52 @@ export default function Home() {
             <div className="border-r border-gray-200 pr-6">
               <h3 className="font-serif text-xl font-bold mb-3">The Value of Rejection</h3>
               <p className="text-gray-700 mb-3">Why we should embrace our failures as stepping stones to success.</p>
-              <p className="text-sm text-gray-500">By Editorial Board</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+                  <Image 
+                    src={`https://randomuser.me/api/portraits/men/32.jpg`}
+                    alt="Photo of Editorial Board"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-500">By Editorial Board</p>
+              </div>
             </div>
             <div className="border-r border-gray-200 pr-6">
               <h3 className="font-serif text-xl font-bold mb-3">Rejection as Redirection</h3>
               <p className="text-gray-700 mb-3">Sometimes the best opportunities come after doors have closed.</p>
-              <p className="text-sm text-gray-500">By Guest Columnist</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+                  <Image 
+                    src={`https://randomuser.me/api/portraits/women/65.jpg`}
+                    alt="Photo of Guest Columnist"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-500">By Guest Columnist</p>
+              </div>
             </div>
             <div>
               <h3 className="font-serif text-xl font-bold mb-3">The Psychology of Resilience</h3>
               <p className="text-gray-700 mb-3">
                 How our brains process rejection and how we can train ourselves to bounce back.
               </p>
-              <p className="text-sm text-gray-500">By Dr. Psychology</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm">
+                  <Image 
+                    src={`https://randomuser.me/api/portraits/men/55.jpg`}
+                    alt="Photo of Dr. Psychology"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-sm text-gray-500">By Dr. Psychology</p>
+              </div>
             </div>
           </div>
         </div>

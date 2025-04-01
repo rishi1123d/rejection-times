@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -18,11 +19,59 @@ interface Story {
   content?: string;
 }
 
+// Author Avatar Component
+function AuthorAvatar({ name, size = "medium" }: { name: string, size?: "small" | "medium" | "large" }) {
+  // Generate a consistent seed based on the name
+  const generateSeed = (name: string) => {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash).toString();
+  };
+  
+  // Generate URLs for different types of authors to ensure consistent but different images
+  const getAvatarUrl = (name: string) => {
+    const lowerName = name.toLowerCase();
+    const seed = generateSeed(name);
+    
+    // Determine gender for the image - just for variety in the avatars
+    const isFemale = ["jane", "sarah", "emily"].some(n => lowerName.includes(n.toLowerCase()));
+    const gender = isFemale ? "female" : "male";
+    
+    // Unique but consistent identifier based on name
+    return `https://randomuser.me/api/portraits/${gender}/${parseInt(seed) % 99}.jpg`;
+  };
+  
+  // Set size classes based on the size prop
+  const sizeClasses = {
+    small: "w-8 h-8",
+    medium: "w-12 h-12",
+    large: "w-24 h-24"
+  };
+
+  return (
+    <div className={`relative rounded-full overflow-hidden ${sizeClasses[size]} border-2 border-white shadow-md`}>
+      <Image 
+        src={getAvatarUrl(name)}
+        alt={`Photo of ${name}`}
+        fill
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
 export default function StoryPage({ params }: { params: { id: string } }) {
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Directly use the id from window.location to avoid accessing params.id
   useEffect(() => {
+    // Extract the ID from the URL path
+    const pathSegments = window.location.pathname.split('/');
+    const id = pathSegments[pathSegments.length - 1];
+    
     // In a real app, you'd fetch this from an API
     // For now, we'll use our mock data
     const featuredStories = [
@@ -197,10 +246,10 @@ export default function StoryPage({ params }: { params: { id: string } }) {
       },
     ];
 
-    const foundStory = featuredStories.find(s => s.id === params.id);
+    const foundStory = featuredStories.find(s => s.id === id);
     setStory(foundStory || null);
     setLoading(false);
-  }, [params.id]);
+  }, []);
 
   if (loading) {
     return (
@@ -246,11 +295,24 @@ export default function StoryPage({ params }: { params: { id: string } }) {
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
             {story.quote}
           </h1>
-          <div className="border-l-4 border-gray-300 pl-4 mb-6">
+          <div className="border-l-4 border-gray-300 pl-4 mb-8">
             <p className="text-xl text-gray-700 italic mb-2">{story.description}</p>
             <p className="text-xl text-green-700 font-medium">{story.outcome}</p>
           </div>
-          <p className="text-sm text-gray-500">By {story.author}</p>
+          
+          {/* Author with Avatar */}
+          <div className="flex items-center py-4 px-6 bg-gray-50 rounded-lg border border-gray-100">
+            <div className="mr-6">
+              <AuthorAvatar name={story.author} size="large" />
+            </div>
+            <div>
+              <h3 className="font-serif text-xl font-bold">{story.author}</h3>
+              <p className="text-sm text-gray-500">{story.date}</p>
+              <p className="mt-2 text-gray-600 max-w-md">
+                {story.author} shares their personal journey from rejection to success in this powerful story.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Story content */}
