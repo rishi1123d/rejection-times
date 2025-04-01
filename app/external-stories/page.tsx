@@ -51,7 +51,7 @@ export default function ExternalStories() {
         {/* Featured external story */}
         <div className="mb-12 border-b border-gray-200 pb-10">
           {externalSuccessStories.slice(0, 1).map((story) => (
-            <div key={story.id} className="grid md:grid-cols-2 gap-8">
+            <div key={story?.id} className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-100 aspect-[4/3] relative">
                 <Image 
                   src={story.imageUrl} 
@@ -61,14 +61,14 @@ export default function ExternalStories() {
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)} • {story.source}</p>
+                <p className="text-sm text-gray-500 mb-2">{formatdate(story?.date)} • {story.source}</p>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight hover:underline">
                   <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     {story.title}
                     <ExternalLink className="h-5 w-5" />
                   </a>
                 </h2>
-                <p className="text-lg text-gray-700 mb-4">{story.description}</p>
+                <p className="text-lg text-gray-700 mb-4">{story?.description}</p>
                 <a 
                   href={story.sourceUrl} 
                   target="_blank" 
@@ -85,7 +85,7 @@ export default function ExternalStories() {
         {/* Grid of remaining external stories */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {externalSuccessStories.slice(1).map((story) => (
-            <div key={story.id} className="border-b border-gray-200 pb-6">
+            <div key={story?.id} className="border-b border-gray-200 pb-6">
               <div className="bg-gray-100 aspect-[16/9] relative mb-4">
                 <Image 
                   src={story.imageUrl} 
@@ -94,14 +94,14 @@ export default function ExternalStories() {
                   className="object-cover"
                 />
               </div>
-              <p className="text-sm text-gray-500 mb-2">{formatdate(story.date)} • {story.source}</p>
+              <p className="text-sm text-gray-500 mb-2">{formatdate(story?.date)} • {story.source}</p>
               <h3 className="font-serif text-xl font-bold mb-3 leading-tight hover:underline">
                 <a href={story.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                   {story.title}
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </h3>
-              <p className="text-gray-700 mb-3">{story.description}</p>
+              <p className="text-gray-700 mb-3">{story?.description}</p>
               <a 
                 href={story.sourceUrl} 
                 target="_blank" 
