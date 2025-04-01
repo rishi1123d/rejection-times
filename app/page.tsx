@@ -1,71 +1,41 @@
+'use client'
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+import { useEffect, useState } from "react"
+type Story = {
+  id: string;
+  quote: string;
+  description: string;
+  outcome: string;
+  author: string;
+  date: string;
+  featured: boolean;
+  size: string;
+};
+
 export default function Home() {
-  const featuredStories = [
-    {
-      id: "1",
-      quote:
-        "Your manuscript is both good and original, but the part that is good is not original and the part that is original is not good.",
-      description: "After multiple rejections from publishers, I almost gave up on my writing career.",
-      outcome: "I'm now a New York Times bestselling author with over 1 million copies sold.",
-      author: "Jane Smith",
-      date: "April 1, 2025",
-      featured: true,
-      size: "large",
-    },
-    {
-      id: "2",
-      quote: "We don't see enough leadership potential in you to move forward with your application.",
-      description: "A major tech company's leadership program rejected me, saying I lacked potential.",
-      outcome: "I founded my own company that now employs 50 people.",
-      author: "John Doe",
-      date: "March 28, 2025",
-      featured: false,
-      size: "medium",
-    },
-    {
-      id: "3",
-      quote: "You lack the qualifications necessary for our medical program. We suggest exploring other career paths.",
-      description: "I was rejected from all 15 medical schools I applied to on my first try.",
-      outcome: "I'm now the head of neurosurgery at a leading hospital.",
-      author: "Dr. Sarah Johnson",
-      date: "March 25, 2025",
-      featured: false,
-      size: "medium",
-    },
-    {
-      id: "4",
-      quote: "Your business idea is too niche and won't find a market.",
-      description: "Every investor I approached turned down my startup idea.",
-      outcome: "My company was acquired last year for $50 million.",
-      author: "Michael Chen",
-      date: "March 20, 2025",
-      featured: false,
-      size: "small",
-    },
-    {
-      id: "5",
-      quote: "We regret to inform you that your application has been declined.",
-      description: "I was rejected from my dream job three times over five years.",
-      outcome: "I now lead the department that once rejected me.",
-      author: "Robert Williams",
-      date: "March 15, 2025",
-      featured: false,
-      size: "small",
-    },
-    {
-      id: "6",
-      quote: "Your voice isn't right for our radio station.",
-      description: "I was told I didn't have the voice for broadcasting.",
-      outcome: "My podcast now has over 5 million monthly listeners.",
-      author: "Emily Johnson",
-      date: "March 10, 2025",
-      featured: false,
-      size: "small",
-    },
-  ]
+  const [featuredStories, setFeaturedStories] = useState<Story[]>([]);
+
+  useEffect(() => {
+    const fetchStories = async () => {
+      console.log('Fetching stories from API...');
+      const response = await fetch('/api/supabase');
+      if (!response.ok) {
+        console.error('Error fetching stories:', response.statusText);
+        return;
+      }
+      console.log('Stories fetched successfully');
+      const data = await response.json();
+      console.log('Fetched stories:', data); 
+      console.log("Featured stories only:", data.filter((s: Story) => s.featured));
+
+      setFeaturedStories(data);
+    };
+
+    fetchStories();
+  }, []);
 
   return (
     <div className="container mx-auto px-4 md:px-6 pt-6 pb-16">
@@ -124,9 +94,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Medium stories - 2 columns each */}
           {featuredStories
-            .filter((story) => story.size === "medium")
+            // .filter((story) => story.size === "medium")
             .map((story, index) => (
-              <div key={story.id} className="md:col-span-6 border-b border-gray-200 pb-6">
+              <div key={story.id} className="md:col-span-4 border-b border-gray-200 pb-6">
                 <p className="text-sm text-gray-500 mb-2">{story.date}</p>
                 <h3 className="font-serif text-2xl font-bold mb-3 leading-tight hover:underline">
                   <Link href={`/story/${story.id}`}>{story.quote}</Link>
@@ -138,8 +108,8 @@ export default function Home() {
             ))}
 
           {/* Small stories - 4 columns each */}
-          {featuredStories
-            .filter((story) => story.size === "small")
+          {/* {featuredStories
+            // .filter((story) => story.size === "small")
             .map((story, index) => (
               <div key={story.id} className="md:col-span-4 border-b md:border-b-0 border-gray-200 pb-6">
                 <p className="text-sm text-gray-500 mb-1">{story.date}</p>
@@ -150,11 +120,11 @@ export default function Home() {
                 <p className="text-sm text-green-700 font-medium">{story.outcome}</p>
                 <p className="text-xs text-gray-500 mt-2">By {story.author}</p>
               </div>
-            ))}
+            ))} */}
         </div>
 
         {/* Opinion section */}
-        <div className="mt-12 pt-8 border-t border-gray-300">
+        {/* <div className="mt-12 pt-8 border-t border-gray-300">
           <h2 className="font-serif text-2xl font-bold mb-6">Opinion</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border-r border-gray-200 pr-6">
@@ -175,9 +145,8 @@ export default function Home() {
               <p className="text-sm text-gray-500">By Dr. Psychology</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   )
 }
-

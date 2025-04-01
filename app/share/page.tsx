@@ -1,10 +1,74 @@
+'use client'
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react"
 
 export default function ShareStory() {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [rejectionQuote, setRejectionQuote] = useState('');
+  const [story, setStory] = useState('');
+  const [outcome, setOutcome] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false); // State for submission status
+  const [submitStatus, setSubmitStatus] = useState(null); // State for success/error message
+
+  // --- Handle Form Submission ---
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default browser form submission
+    setIsSubmitting(true); // Indicate submission is in progress
+    setSubmitStatus(null); // Reset previous status messages
+
+    // Construct the data payload from state
+    const formData = {
+      name,
+      email,
+      rejectionQuote,
+      story,
+      outcome,
+    };
+
+    try {
+      const response = await fetch('/api/supabase', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), 
+      });
+
+
+      if (!response.ok) {
+        
+        const errorData = await response.json(); 
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
+      // Handle successful submission
+      const result = await response.json(); 
+      console.log('Submission successful:', result);
+      setSubmitStatus({ type: 'success', message: 'Your story has been submitted successfully!' });
+
+      // Optionally, clear the form fields after successful submission
+      setName('');
+      setEmail('');
+      setRejectionQuote('');
+      setStory('');
+      setOutcome('');
+
+    } catch (error) {
+      // Handle errors during fetch or submission
+      console.error('Submission failed:', error);
+      setSubmitStatus({ type: 'error', message: `Submission failed: ${error.message}` });
+    } finally {
+      // Reset submission status regardless of success or failure
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 md:px-6 py-10">
       <div className="max-w-2xl mx-auto">
@@ -14,7 +78,7 @@ export default function ShareStory() {
         <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">Share Your Story</h1>
         <p className="text-xl text-gray-700 mb-8">Tell us about a rejection that ultimately led to success</p>
 
-        <form className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm font-medium text-gray-900">
               Your Name
@@ -73,9 +137,17 @@ export default function ShareStory() {
               rows={3}
             />
           </div>
-
+ {/* Submission Status Messages */}
+ {submitStatus && (
+            <div className={`p-3 rounded-md text-sm ${
+              submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            }`}>
+              {submitStatus.message}
+            </div>
+ )}
           <Button type="submit" className="w-full bg-black hover:bg-gray-800 text-white rounded-none">
-            Submit Your Story
+
+          {isSubmitting ? 'Submitting...' : 'Submit Your Story'}
           </Button>
         </form>
       </div>
