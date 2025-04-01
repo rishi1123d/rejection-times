@@ -53,8 +53,8 @@ export default function About() {
           <p>
             For inquiries, feedback, or partnership opportunities, please contact us at:
             <br />
-            <a href="mailto:editor@rejectiontimes.com" className="text-gray-900 underline">
-              editor@rejectiontimes.com
+            <a href="mailto:rishi@stride-labs.com" className="text-gray-900 underline">
+              rishi@stride-labs.com
             </a>
           </p>
         </div>
