@@ -253,6 +253,25 @@ const featuredStories: Story[] = [
     date: "April 5, 2025", // Current week's date
     featured: true, // This is the featured story for this week
     size: "large",
+    content: `
+      <p>Hank Couture's journey is a testament to persistence through rejection. At 19, he was rejected by all the colleges he ambitiously applied to — even his safety school. He enrolled in community college, where he gained not only credits but perspective.</p>
+      
+      <p>At 20, he tried to break into venture capital through cold outreach but received no traction. His emails, by his own admission, weren't great. The rejections were numerous and often without explanation, which led to a period of self-doubt and questioning.</p>
+      
+      <p>At 21, his college startup was dismissed as a "lifestyle business," and both Y Combinator and Techstars passed without an interview. The feedback he received was that his idea lacked scalability and market potential. Despite his conviction in the concept, he couldn't convince the gatekeepers to give him a chance.</p>
+      
+      <p>By 23, he faced further setbacks when he failed final interviews at Palantir and Expa. Frustrated with the constant rejection in traditional career paths, he made a pivotal decision to quit his job search altogether and teach himself how to code. This self-directed learning period proved transformative, building skills that would later become invaluable.</p>
+      
+      <p>At 25, while working early at DoorDash, Couture applied to several prestigious MBA programs — Stanford, Harvard, Northwestern, and UChicago — and was rejected by all. The rejections cited his unconventional background and lack of traditional leadership experience. What seemed like another door closing actually kept him at DoorDash during some of its most formative years.</p>
+      
+      <p>Ironically, staying at DoorDash led to some of the most impactful years of his life, culminating in the company's IPO. The experience gave him frontline exposure to hypergrowth, scaling challenges, and the inner workings of a successful startup — experiences no MBA program could have provided in quite the same way.</p>
+      
+      <p>At 33, with no formal investing experience, he launched LeapYear, a solo venture fund backing students, dropouts, and new grads. Institutional LPs passed, citing his lack of track record and the risky demographic focus. But Couture didn't give up. He raised his fund through people who knew him, believed in his vision, and took the time to listen.</p>
+      
+      <p>Through LeapYear, he now champions the very kind of young talent he once was — driven, overlooked, and underestimated. His fund represents a new model in venture capital, one rooted in belief, boldness, and second chances.</p>
+      
+      <p>Looking back, Couture sees each rejection not as a roadblock but as a redirection that ultimately led him to his true path. His story reminds us that conventional success metrics and traditional gatekeepers don't always recognize unconventional potential. Sometimes, the most transformative journeys begin with a "no."</p>
+    `,
   },
   {
     id: "submit2",
@@ -263,6 +282,25 @@ const featuredStories: Story[] = [
     date: "April 3, 2025",
     featured: false,
     size: "medium",
+    content: `
+      <p>In 2005, Evan Williams co-founded Odeo, a podcasting platform meant to ride the wave of growing audio content. The vision was to build a directory and creation tool for the emerging medium of podcasting, which was showing early signs of promise. Williams, fresh off selling Blogger to Google, invested his own money and raised venture capital for this new venture.</p>
+      
+      <p>However, shortly after launch, Apple announced iTunes would support podcasts, effectively overwhelming Odeo's market potential. With Apple's massive user base and established digital media ecosystem, Odeo suddenly found itself in direct competition with a tech giant that controlled both the hardware and software that most podcast listeners used.</p>
+      
+      <p>The announcement caught the Odeo team off guard. As Williams later described it: "We were a tiny company with a dozen employees going up against Apple. It seemed like our opportunity had passed."</p>
+      
+      <p>Facing obsolescence, Williams made a bold move. Rather than continuing to compete in a market now dominated by Apple, he gathered the Odeo team for a hackathon, encouraging employees to break into small groups and explore new ideas. During this period of creative exploration, a small team including Jack Dorsey developed a prototype for a service that would allow users to send status updates via SMS.</p>
+      
+      <p>Williams and his team brainstormed new ideas, one of which was a platform for sharing short, real-time status updates. The concept, initially called "twttr," was designed around SMS messaging with a 140-character limit (determined by SMS constraints). What started as a side project quickly gained traction among the team.</p>
+      
+      <p>Williams made the difficult decision to return money to Odeo's investors and buy back the company's assets, including the fledgling Twitter project. Not all investors were happy with this unusual move, but Williams believed in the potential of this new direction.</p>
+      
+      <p>This pivot led to the creation of Twitter in 2006. Initially a side project, Twitter quickly gained traction and grew into a global platform, transforming real-time communication and playing a critical role in news, politics, and social movements. The service found its first significant audience at the SXSW conference in 2007, where usage increased dramatically.</p>
+      
+      <p>Twitter went on to become a transformative communication platform, revolutionizing how people share information, follow breaking news, and engage with public figures. What began as a response to rejection by market circumstances evolved into a company valued at billions of dollars that fundamentally changed how the world communicates.</p>
+      
+      <p>Williams' story demonstrates how market rejection can force innovation and lead to unexpected opportunities. The death of one idea became the birth of something far more impactful than anyone could have predicted.</p>
+    `,
   },
   {
     id: "submit3",
@@ -273,6 +311,25 @@ const featuredStories: Story[] = [
     date: "April 2, 2025",
     featured: false,
     size: "medium",
+    content: `
+      <p>Howard Schultz joined Starbucks in 1982 as the Director of Marketing when it was still a small Seattle company selling coffee beans. A year later, while on a business trip to Milan, Italy, Schultz had an epiphany when he experienced the vibrant Italian coffeehouse culture—espresso bars that served as "third places" between home and work, community gathering spots with a sense of connection and romance.</p>
+      
+      <p>Inspired, Schultz tried to convince Starbucks' owners to adopt the Italian-style espresso bar model. When they declined, believing Starbucks should remain focused on selling coffee beans rather than beverages, Schultz was devastated. The owners were unwilling to take the risk of transforming their business model, concerned that serving drinks would distract from their core business and alter the company's identity.</p>
+      
+      <p>Rather than abandoning his vision, Schultz made the difficult decision to leave Starbucks in 1985 to launch his own coffee company, Il Giornale. Named after an Italian newspaper, the cafes served espresso drinks and focused on recreating the coffeehouse experience Schultz had fallen in love with in Italy.</p>
+      
+      <p>Raising the startup capital wasn't easy. Despite financial challenges and skeptical investors who questioned whether Americans would pay premium prices for coffee drinks, Schultz pursued his vision relentlessly. He approached 242 potential investors, and 217 said no. Many told him the concept would never work in a culture dominated by fast food and instant coffee.</p>
+      
+      <p>Two years later, fate presented an unexpected opportunity when the original owners of Starbucks decided to sell the company. Despite having limited resources, Schultz raised $3.8 million to purchase Starbucks in 1987, merging it with Il Giornale. He became CEO of the combined company, which retained the Starbucks name but adopted Schultz's coffeehouse vision.</p>
+      
+      <p>Under his leadership, Starbucks grew into a global coffeehouse brand. Schultz implemented comprehensive employee benefits including healthcare for part-time workers and stock options (called "Bean Stock"), revolutionary practices in the retail and food service industries at the time.</p>
+      
+      <p>Schultz overcame further hurdles, including economic downturns and internal crises. When Starbucks faced serious challenges in 2008 during the financial crisis, Schultz returned as CEO after an eight-year hiatus to lead a massive turnaround effort, closing underperforming stores and refocusing on the customer experience.</p>
+      
+      <p>Today, Starbucks has over 35,000 stores in more than 80 countries, forever changing how people experience coffee worldwide. What began as a rejected idea has created tens of thousands of jobs and transformed an entire industry.</p>
+      
+      <p>Schultz's story exemplifies the power of conviction in the face of rejection. Rather than compromise his vision, he found another path forward, ultimately creating something far greater than even he had initially imagined.</p>
+    `,
   },
   {
     id: "submit4",
@@ -283,6 +340,25 @@ const featuredStories: Story[] = [
     date: "April 1, 2025",
     featured: false,
     size: "medium",
+    content: `
+      <p>Travis Kalanick's journey through rejection began with his first venture, Scour, an early peer-to-peer file-sharing service he co-founded while still a computer science student at UCLA in 1997. The pioneering platform allowed users to search for and exchange files—including music and videos—directly with other users.</p>
+      
+      <p>While Scour gained popularity and secured some initial investment, the company soon faced an existential threat. In 2000, at the height of the dot-com bubble, the Recording Industry Association of America (RIAA), the Motion Picture Association of America (MPAA), and the National Music Publishers Association filed a $250 billion lawsuit against Scour, alleging copyright infringement.</p>
+      
+      <p>The astronomical figure of the lawsuit—larger than the GDP of many countries—was intended to make an example of the fledgling company. Unable to fight the legal battle, Scour filed for bankruptcy. For Kalanick, it was a crushing defeat that taught him hard lessons about disruption, established industries, and legal challenges.</p>
+      
+      <p>Rather than retreating from entrepreneurship after such a public failure, Kalanick immediately founded Red Swoosh in 2001—another file-sharing company, but with a crucial difference. Red Swoosh developed technology that helped media companies distribute content online legally, turning the very problem that killed Scour into a new business opportunity.</p>
+      
+      <p>But Red Swoosh wasn't an immediate success either. The company struggled during the post-dot-com crash era. At one point, Kalanick couldn't pay himself a salary for three years, maxed out his credit cards, and moved back in with his parents. The IRS came after the company for unpaid taxes, and Kalanick faced additional challenges with co-founders leaving and investment deals falling through at the last minute.</p>
+      
+      <p>Despite these challenges, Kalanick persisted and eventually secured new funding. His determination paid off when Red Swoosh was acquired by Akamai Technologies in 2007 for approximately $19 million—providing Kalanick with his first major financial success and entrepreneurial vindication.</p>
+      
+      <p>Undeterred by his roller-coaster experience, he co-founded Uber in 2009, which began as a simple ride-hailing app. Uber faced tremendous resistance from established taxi industries, regulatory challenges, and skepticism about its business model. Kalanick's aggressive approach to expansion often put him at odds with local governments and transportation authorities, but also enabled Uber's remarkable global growth.</p>
+      
+      <p>Uber revolutionized transportation globally. Despite controversies and his eventual resignation from the CEO position in 2017 following a series of scandals, Kalanick's idea fundamentally changed how people travel, giving rise to the gig economy and on-demand services that have transformed numerous industries.</p>
+      
+      <p>The company he founded went public in 2019 with a valuation of over $75 billion, and the "Uber model" has been replicated across countless industries, from food delivery to home services. Kalanick's journey from a bankrupted company to creating one of the most transformative businesses of the 21st century demonstrates how rejection and failure can be powerful catalysts for innovation and renewed determination.</p>
+    `,
   },
   {
     id: "submit5",
@@ -293,6 +369,25 @@ const featuredStories: Story[] = [
     date: "March 31, 2025",
     featured: false,
     size: "medium",
+    content: `
+      <p>While at Harvard Business School, Katrina Lake launched Stitch Fix to modernize the shopping experience. The idea came from her own frustration with traditional retail and a belief that technology could create a more personalized approach to fashion. Lake envisioned using data science to match customers with clothing tailored to their preferences, body types, and lifestyles.</p>
+      
+      <p>In 2011, Lake started the business from her apartment in Cambridge, Massachusetts. She would personally shop for clients, mail them boxes of selected items, and handle returns herself. This hands-on approach gave her valuable insights into customer needs and preferences, but scaling the business required significant capital.</p>
+      
+      <p>Using data to personalize fashion was a novel concept, and Lake faced logistical issues and funding rejections. When Lake pitched to venture capitalists, she encountered significant skepticism. Many investors doubted her business model and resisted funding Stitch Fix. Some questioned whether women would trust an online service to select their clothing, while others were concerned about the capital-intensive nature of holding inventory.</p>
+      
+      <p>One particularly memorable rejection came when an investor told her, "I just don't think women would ever shop this way." Another questioned whether a "subscription box for women's clothing" could ever become a billion-dollar business. The fashion industry was seen as too subjective and fickle for a data-driven approach, and many investors preferred to back male founders in technology sectors they understood better.</p>
+      
+      <p>Despite the rejections, Lake remained convinced of her vision. She bootstrapped the company as long as possible, reinvesting revenue and keeping operations lean. Her determination paid off as she secured the necessary capital and refined her tech-enabled model. Lake's early believers included Baseline Ventures and Benchmark, who saw the potential in her unique combination of fashion, data science, and personalized service.</p>
+      
+      <p>Lake's persistence in the face of skepticism extended beyond funding. She built a company culture that valued diverse perspectives, hired data scientists who could translate customer preferences into algorithms, and created logistics systems that could efficiently manage inventory and personalization at scale.</p>
+      
+      <p>Stitch Fix went public in 2017, making Lake, at age 34, the youngest female founder ever to lead an IPO. The successful public offering validated her business model and approach. Lake also made history as one of the few female CEOs in both the technology and retail sectors to take a company public.</p>
+      
+      <p>Despite legal and economic challenges, including increased competition and market volatility, Lake's innovation propelled the company to the forefront of personalized online fashion retail. Under her leadership, Stitch Fix expanded into men's clothing, plus sizes, and international markets, continually refining its algorithms to improve personalization.</p>
+      
+      <p>Lake's story demonstrates how rejection can fuel innovation and determination. By persisting despite investor skepticism and industry doubts, she created a new retail category and proved that data science could indeed transform even the most subjective and personal consumer experiences.</p>
+    `,
   },
   {
     id: "submit6",
@@ -303,6 +398,25 @@ const featuredStories: Story[] = [
     date: "March 30, 2025",
     featured: false,
     size: "small",
+    content: `
+      <p>Frustrated by a $40 late DVD fee for "Apollo 13," Reed Hastings co-founded Netflix with Marc Randolph in 1997 as a DVD rental company that shipped discs to customers by mail. The subscription model eliminated late fees and provided a wider selection than brick-and-mortar stores could offer, but it was just the beginning of Hastings' vision.</p>
+      
+      <p>In 2007, he made the bold decision to pivot to streaming, recognizing that digital distribution represented the future of entertainment. However, this transition faced tremendous resistance from studios and major technical hurdles. Content providers resisted the transition to streaming, fearing loss of traditional revenue streams and potential piracy issues.</p>
+      
+      <p>Major movie and television studios were hesitant to license their content to the fledgling streaming service, concerned about cannibalizing their lucrative DVD sales and traditional broadcast deals. Some outright refused to work with Netflix, while others demanded exorbitant licensing fees that threatened the economic viability of the streaming model.</p>
+      
+      <p>Beyond content acquisition challenges, Netflix faced significant technical obstacles. Streaming high-quality video required substantial bandwidth at a time when most households had relatively slow internet connections. The company had to develop adaptive streaming technology that could adjust video quality based on available bandwidth, while also building the infrastructure to support millions of simultaneous streams.</p>
+      
+      <p>Nonetheless, Hastings invested in infrastructure and gradually shifted consumer behavior. He committed substantial resources to building a robust content delivery network and developing streaming technology that would work across multiple devices and varying internet speeds. Engineers at Netflix pioneered new approaches to video compression and delivery that would later become industry standards.</p>
+      
+      <p>Wall Street was initially skeptical of the streaming pivot. In 2011, when Hastings announced the separation of the DVD and streaming businesses (briefly naming the DVD service "Qwikster"), Netflix's stock plummeted by 75%. Critics and shareholders questioned whether the company was abandoning its core business too quickly.</p>
+      
+      <p>Despite these setbacks, Hastings remained committed to the streaming vision. Netflix became the pioneer of digital streaming, forever changing how people consume television and film. By creating award-winning originals like "House of Cards" and "Orange Is the New Black" starting in 2013, Netflix reduced its dependence on licensed content while establishing itself as a premium content creator.</p>
+      
+      <p>Expanding globally was another challenge, requiring navigation of different regulatory environments, content preferences, and technical infrastructure limitations. Nevertheless, by creating award-winning originals and expanding to over 190 countries, Hastings led the company to dominate the entertainment industry, transforming Netflix from a DVD rental service into a global entertainment powerhouse with over 200 million subscribers worldwide.</p>
+      
+      <p>Hastings' willingness to disrupt his own successful business model before it became obsolete, his persistence in the face of industry resistance, and his long-term vision despite short-term setbacks exemplify how overcoming rejection can lead to revolutionary change.</p>
+    `,
   },
   {
     id: "submit7",
@@ -313,6 +427,25 @@ const featuredStories: Story[] = [
     date: "March 28, 2025",
     featured: false,
     size: "small",
+    content: `
+      <p>When Reddit launched in 2005, it had no traffic. The platform, created by roommates Steve Huffman and Alexis Ohanian shortly after graduating from the University of Virginia, was essentially an empty room—a link-sharing website without links or users to share them.</p>
+      
+      <p>The initial rejection came in the form of silence. After being accepted into Y Combinator's first batch, they had built a platform that nobody was using. Their original idea, a mobile food ordering app called MyMobileMenu, had been rejected by Y Combinator's Paul Graham, who instead suggested they build "the front page of the Internet." But upon launch, that front page remained stubbornly empty.</p>
+      
+      <p>Faced with this underwhelming start, Huffman and Ohanian made a strategic decision. They created fake accounts to simulate a lively user base, guiding early discussions and building a sense of community. Using various usernames, they would submit links, comment on their own submissions, and create the illusion of activity and engagement.</p>
+      
+      <p>"We would submit content, leave comments and basically just act like users," Huffman later admitted. "We had conversations with ourselves for weeks." This artificial activity served several purposes: it demonstrated how the site was meant to be used, it created content for new visitors to engage with, and it gave the impression that Reddit was more popular than it actually was.</p>
+      
+      <p>This approach was particularly crucial because of Reddit's community-based model. Unlike other websites that could function with minimal user interaction, Reddit's entire value proposition depended on active community participation. Without users, there was no Reddit—just an empty framework.</p>
+      
+      <p>Gradually, real users began to trickle in, attracted by the seemingly active discussions. As the genuine user base grew, Huffman and Ohanian were able to reduce their fake account activities. The community began to take on a life of its own, with users creating subreddits (topic-specific forums) and developing unique cultural norms and inside jokes.</p>
+      
+      <p>Reddit's growth accelerated when it introduced the concept of subreddits in 2008, allowing users to create their own communities focused on specific interests. This decentralized approach to community-building enabled Reddit to expand organically across countless niches, from major topics like news and technology to highly specialized interests.</p>
+      
+      <p>Reddit now boasts over 430 million users, with more than 100,000 active communities. Their strategy of simulating activity proved the power of perceived popularity and laid the groundwork for one of the internet's most influential platforms. The site has become a cultural force, influencing everything from meme culture to stock markets, and has been instrumental in countless community-driven initiatives.</p>
+      
+      <p>What began as a response to rejection—creating fake users when real ones didn't materialize—became a masterclass in community building. Huffman and Ohanian's willingness to manually create the experience they envisioned, rather than waiting passively for users to arrive, demonstrated the entrepreneurial principle that sometimes you need to manufacture momentum before real momentum can take hold.</p>
+    `,
   },
   {
     id: "submit8",
@@ -323,6 +456,27 @@ const featuredStories: Story[] = [
     date: "March 25, 2025",
     featured: false,
     size: "small",
+    content: `
+      <p>Rob Hull envisioned Adaptive Insights (originally named Adaptive Planning) as a solution for business planning and analytics. Drawing from his experience as a CFO, Hull recognized that most companies were still relying on cumbersome spreadsheets for financial planning, budgeting, and forecasting—processes that were error-prone, time-consuming, and difficult to collaborate on.</p>
+      
+      <p>His vision was to create cloud-based software that would simplify these critical business processes, making sophisticated financial planning tools accessible to companies of all sizes, not just large enterprises with substantial IT budgets. The idea seemed logical to Hull, who had experienced the pain points firsthand.</p>
+      
+      <p>However, venture capitalists dismissed the idea repeatedly—70 times. The rejections came for various reasons. Many VCs believed that companies wouldn't trust cloud-based solutions for sensitive financial data (the company was founded in 2003, when cloud computing was still viewed with skepticism). Others thought the market was too narrow or that Hull, who lacked software development experience, wasn't the right founder to execute the vision.</p>
+      
+      <p>One particularly memorable rejection came when a prominent venture capitalist told Hull, "Financial planning is just a feature, not a company." Another suggested that Excel was "good enough" and that there wasn't sufficient demand for a specialized solution.</p>
+      
+      <p>The constant stream of rejections would have deterred many entrepreneurs, but Hull used each meeting as an opportunity to refine his thinking. He took note of the objections, improved his pitch, and adjusted his business strategy accordingly.</p>
+      
+      <p>Undeterred, Hull kept refining his pitch and strategy until he finally secured funding. After nearly a year of rejections, Hull managed to raise a modest seed round from angel investors who believed in his vision. With this initial capital, he assembled a small team and built the first version of the product.</p>
+      
+      <p>The early days were challenging. The company had to operate with minimal resources, and Hull often questioned whether the VCs who rejected him were right. But as the product developed and early customers came on board, validation began to emerge. Companies of all sizes were indeed eager for an alternative to spreadsheet-based planning.</p>
+      
+      <p>Adaptive Insights grew into a billion-dollar company and was acquired by Workday in 2018 for $1.55 billion—a validation of Hull's vision and persistence. By the time of the acquisition, Adaptive Insights had over 3,800 customers across 50 countries and had become a leader in the business planning software market.</p>
+      
+      <p>Hull's persistence turned a rejected idea into a major success story in enterprise software. The company he founded transformed how businesses approach financial planning and analysis, bringing sophisticated tools to organizations that previously couldn't access them.</p>
+      
+      <p>His story highlights that experts—even those whose job it is to identify promising businesses—can be wrong, especially about innovative ideas that challenge established practices. It also demonstrates the value of perseverance and using rejection as a tool for refinement rather than a reason to abandon a vision.</p>
+    `,
   },
   {
     id: "submit9",
@@ -333,6 +487,27 @@ const featuredStories: Story[] = [
     date: "March 23, 2025",
     featured: false,
     size: "small",
+    content: `
+      <p>Jensen Huang co-founded NVIDIA in 1993 with a vision to revolutionize graphics processing. Having worked at AMD and LSI Logic, Huang believed that specialized processors for rendering graphics would transform computing, particularly for gaming and visual applications. Along with Chris Malachowsky and Curtis Priem, he set out to create graphics processing units (GPUs) that would accelerate 3D graphics rendering.</p>
+      
+      <p>In the early years, investors were skeptical about the company's narrow focus on GPUs, especially during the dot-com crash when hardware companies were hit hard. Huang faced repeated doubts and limited funding, yet he stayed committed to the core idea. Many potential investors dismissed NVIDIA's prospects, suggesting that graphics processing would eventually be absorbed into central processors (CPUs) made by giants like Intel.</p>
+      
+      <p>"Investors once told NVIDIA that a graphics-focused company wouldn't survive the tech bubble," Huang recalled in later interviews. The prevailing wisdom was that specialized hardware companies were particularly vulnerable to market downturns and commoditization pressures.</p>
+      
+      <p>When the dot-com bubble burst in 2000-2001, these fears seemed validated. Hardware companies were among the hardest hit, and NVIDIA's stock plummeted along with the broader tech sector. Analysts questioned whether the company could survive in a market increasingly dominated by integrated solutions from larger players.</p>
+      
+      <p>Adding to these challenges, NVIDIA faced fierce competition from established companies like ATI Technologies (later acquired by AMD). The graphics card market was seen as a commodity business with thin margins and limited growth potential. Many advised Huang to diversify away from graphics processing or sell the company.</p>
+      
+      <p>Huang not only resisted these pressures but doubled down on his belief in the importance of specialized processors. He guided NVIDIA through the difficult years following the tech bubble, continuing to invest in R&D and pushing the boundaries of what GPUs could do.</p>
+      
+      <p>A pivotal moment came when Huang recognized that the parallel processing capabilities of GPUs could be applied beyond graphics rendering. In 2006, NVIDIA introduced CUDA, a platform that allowed developers to use GPUs for general-purpose computing tasks. This insight—that the architecture developed for rendering graphics could also accelerate a wide range of computational problems—would prove transformative.</p>
+      
+      <p>NVIDIA not only survived but led the AI and GPU revolution. As artificial intelligence and deep learning gained momentum in the 2010s, NVIDIA's GPUs emerged as the ideal hardware for training complex neural networks. The parallel processing capabilities that made GPUs excellent for graphics rendering also made them perfect for the matrix operations underlying machine learning algorithms.</p>
+      
+      <p>Huang's long-term vision helped redefine computing, gaming, and artificial intelligence, making NVIDIA a trillion-dollar company and a backbone of modern technology. From autonomous vehicles to scientific research, from cloud computing to cryptocurrency mining, NVIDIA's technologies have become essential infrastructure for the digital age.</p>
+      
+      <p>What investors once dismissed as a niche hardware company has become one of the most valuable technology companies in the world, with NVIDIA's market capitalization exceeding $1 trillion in 2023. Huang's ability to weather rejection, maintain focus on his vision, and recognize new applications for NVIDIA's core technology has created extraordinary value and transformed multiple industries.</p>
+    `,
   },
   {
     id: "submit10",
@@ -343,6 +518,58 @@ const featuredStories: Story[] = [
     date: "March 20, 2025",
     featured: false,
     size: "small",
+    content: `
+      <p>After selling Zip2, his first company, to Compaq for $307 million in 1999, Elon Musk co-founded X.com, an online payment company that later merged with Confinity to become PayPal. Despite his role as a founder, Musk was ousted as CEO of PayPal in 2000 while on vacation, replaced by Peter Thiel in a boardroom coup. Though the company would later be sold to eBay for $1.5 billion, providing Musk with a substantial windfall, the experience of being forced out of his own company was a significant rejection.</p>
+      
+      <p>Rather than retreating from entrepreneurship after this setback, Musk used his fortune to start Tesla and SpaceX, ventures many believed were doomed. Both companies represented extraordinary risks in industries with high barriers to entry, dominated by established players with decades of experience and billions in resources.</p>
+      
+      <p>When Musk founded SpaceX in 2002, the idea of a private company building rockets was considered absurd. The space industry was dominated by government agencies like NASA and massive defense contractors. Critics pointed out that Musk had no background in aerospace engineering and that even nations struggled with the complexities and costs of space flight.</p>
+      
+      <p>SpaceX saw its first three rocket launches fail spectacularly. Each failure cost millions and was widely publicized, reinforcing critics' beliefs that Musk was out of his depth. By 2008, with resources dwindling and no successful launches, SpaceX was on the brink of bankruptcy.</p>
+      
+      <p>Similarly, when Musk invested in Tesla in 2004 and became chairman (later CEO), the automotive industry was skeptical. No successful American car company had been founded since Chrysler in 1925, and electric vehicles were considered a niche market with limited appeal. Industry executives dismissed Tesla, with Bob Lutz, former Vice Chairman of General Motors, stating that "electric cars are an interesting curiosity but they won't make a significant dent in the auto market."</p>
+      
+      <p>Tesla faced manufacturing delays and funding struggles. The 2008 financial crisis hit both Tesla and SpaceX hard, with Tesla coming within days of bankruptcy. Musk nearly ran out of money funding both companies, ultimately investing his last $20 million into Tesla while taking out personal loans to cover his living expenses.</p>
+      
+      <p>In what Musk has described as one of the most stressful periods of his life, both companies were saved at the last moment—SpaceX by securing a $1.6 billion contract from NASA after its first successful launch, and Tesla by closing a crucial funding round on Christmas Eve 2008, just hours before the company would have been insolvent.</p>
+      
+      <p>Despite these near-death experiences, both companies not only survived but thrived. Tesla redefined the auto industry, forcing every major manufacturer to develop electric vehicle strategies and becoming the most valuable car company in the world with a market capitalization exceeding traditional automakers many times its size.</p>
+      
+      <p>SpaceX became the first private company to send astronauts to space, revolutionized rocket technology with reusable boosters that dramatically reduced launch costs, and initiated ambitious projects like Starlink to provide global satellite internet. Musk turned setbacks into global innovation, now leading some of the most influential companies in the world.</p>
+      
+      <p>His journey demonstrates how rejection and near-failure can be transformed into extraordinary success through persistence, willingness to take enormous risks, and the ability to inspire others to believe in seemingly impossible visions.</p>
+    `,
+  },
+  {
+    id: "submit11",
+    quote: "Denied entry into several venture capital circles as a young founder.",
+    description: "At just 19, Cory Levy co-founded ONE, a social app for spontaneous meetups. Due to his age and lack of network, many investors dismissed him.",
+    outcome: "He successfully raised funding, launched ONE, and later co-founded ZFellows, helping young entrepreneurs gain access to resources he once lacked.",
+    author: "Cory Levy",
+    date: "March 18, 2025",
+    featured: false,
+    size: "small",
+    content: `
+      <p>At just 19, Cory Levy co-founded ONE, a social app for spontaneous meetups. The concept was simple yet powerful: notify users when people with similar interests were nearby, facilitating real-world connections. Despite the app's promise, Levy faced significant challenges due to his youth and inexperience.</p>
+      
+      <p>Due to his age and lack of network, many investors dismissed him outright. Venture capital firms often prioritize founders with extensive industry experience or previous entrepreneurial success. As a teenager, Levy had neither. In pitch meetings, investors would question his ability to lead a company, manage a team, or navigate the complex business challenges ahead.</p>
+      
+      <p>"Why don't you finish college first?" was a common response. Others would suggest he join an established company to gain experience before attempting to build his own. Some investors didn't even take the meetings, assuming that a 19-year-old couldn't possibly have a viable business concept.</p>
+      
+      <p>Despite being surrounded by older, more experienced peers, Levy stayed persistent and leaned into his youth-driven vision. Rather than viewing his age as a liability, he positioned it as an asset. He understood his generation's social behaviors in ways that older entrepreneurs might not, giving him unique insights into how young people wanted to connect.</p>
+      
+      <p>Levy's persistence eventually paid off. He secured meetings with notable Silicon Valley figures like Keith Rabois and Peter Thiel, who recognized his determination and vision. With their support and mentorship, he was able to secure the funding needed to launch ONE.</p>
+      
+      <p>The experience of building ONE taught Levy invaluable lessons about entrepreneurship, technology development, and user acquisition. While the app itself faced the intense competition typical of social platforms, the journey provided Levy with the knowledge and connections that would fuel his future endeavors.</p>
+      
+      <p>Recognizing the systemic barriers young entrepreneurs face, Levy later co-founded ZFellows, a program designed specifically to help young founders turn their ideas into companies. The initiative provides funding, mentorship, and resources to young entrepreneurs, effectively helping them overcome the very obstacles Levy had faced.</p>
+      
+      <p>Through ZFellows, Levy has helped numerous young founders secure the resources they once lacked. The program has become a launchpad for innovative startups led by young entrepreneurs who might otherwise have been overlooked by traditional investors.</p>
+      
+      <p>His story inspired a wave of youth-focused funding programs and challenged the conventional wisdom about who can be a successful entrepreneur. Today, Levy continues to advocate for young founders, arguing that youth brings fresh perspectives and innovative approaches that are vital to the technology ecosystem.</p>
+      
+      <p>Levy's journey demonstrates that rejection based on preconceived notions—like age—can fuel a determination not only to succeed individually but to change the system itself, creating opportunities for others facing similar barriers.</p>
+    `,
   },
 ];
 export default function StoryPage({ params }: { params: { id: string } }) {
