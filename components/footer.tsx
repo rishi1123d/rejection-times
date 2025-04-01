@@ -45,17 +45,17 @@ export default function Footer() {
             <h3 className="font-serif font-bold mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="https://x.com/0x_rxkvys" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                   Twitter
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="https://www.instagram.com/rxkvys?igsh=ZHphYzNuaWo1aGdj&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a href="https://www.linkedin.com/in/rishi-kanaparti123/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                   LinkedIn
                 </a>
               </li>
